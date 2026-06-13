@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tidehold | an island RPG on Solana</title>
+<meta name="description" content="Wash up, claim an island, gather and craft, and trade on a player-run exchange where every coin is backed by a real deposit. Tidehold is a browser island RPG on Solana." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <svg class="mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2c2.5 3 4 5.5 4 8a4 4 0 1 1-8 0c0-2.5 1.5-5 4-8z" fill="currentColor"/><path d="M3 18c2 0 2.5 1.5 4.5 1.5S10 18 12 18s2.5 1.5 4.5 1.5S19 18 21 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      Tidehold
+    </a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">Menu</button>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html" aria-current="page">Harbor</a>
+      <a href="codex.html">Codex</a>
+      <a href="ledger.html">Ledger</a>
+      <a class="btn btn--sm btn--ghost" href="game.html">Play</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">An island RPG on Solana</p>
+      <h1>Tidehold<span class="sub">hold your ground against the tide</span></h1>
+      <p class="lede">Wash up on an open sea, claim an island, and make your living from the water, gather, craft, and trade in an economy where every real coin is backed by a real deposit.</p>
+      <div class="hero-cta">
+        <a class="btn btn--brass" href="game.html">Enter the harbor</a>
+        <button class="btn" id="connectWallet">Connect wallet</button>
+      </div>
+      <p class="hero-note"><span class="live-badge"><span class="live-dot"></span><span id="livePlayers">0</span> players online</span><span id="marketCap" class="mono"></span> · runs in your browser · <span id="walletState"></span></p>
+      <div id="walletStats" class="wallet-stats" hidden></div>
+    </div>
+    <div class="hero-tide tideline" aria-hidden="true"></div>
+  </section>
+  <div class="sea" aria-hidden="true"><span></span><span></span></div>
+
+  <!-- WHAT IS IT -->
+  <section class="section wrap">
+    <div class="head">
+      <p class="eyebrow">The short of it</p>
+      <h2>A working sea, not a theme park</h2>
+      <p>Tidehold is a living archipelago shared by everyone online. You don't grind toward a score. You build a trade. Cut wood, work metal, learn the blueprints that turn raw stock into goods and machines, then sell what you make to other players on an open exchange. Your island is your workshop, your storefront, and your claim on the map.</p>
+    </div>
+
+    <div class="grid grid--4">
+      <div class="cell">
+        <span class="num">01</span>
+        <h3>Gather</h3>
+        <p>Chop, mine, fish, and forage the world for raw materials, and turn up blueprints and skill lamps while you work.</p>
+      </div>
+      <div class="cell">
+        <span class="num">02</span>
+        <h3>Craft</h3>
+        <p>Learn blueprints to unlock recipes. Refine raw stock into planks, gears, and the buildings that make more.</p>
+      </div>
+      <div class="cell">
+        <span class="num">03</span>
+        <h3>Build</h3>
+        <p>Place what you craft on your island, run crafting stations, and charge other players a fee to use them.</p>
+      </div>
+      <div class="cell">
+        <span class="num">04</span>
+        <h3>Trade</h3>
+        <p>List goods on the Quay. The market matches buyers and sellers and pays out the best price.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="tideline" aria-hidden="true"></div></div>
+
+  <!-- TWO CURRENCIES -->
+  <section class="section wrap">
+    <div class="head">
+      <p class="eyebrow">Two kinds of coin</p>
+      <h2>One for the game, one for keeps</h2>
+      <p>Tidehold runs on two currencies so that fun and real value never get confused. You earn one just by playing; the other only ever changes hands between players, and it's backed by a real deposit you can withdraw.</p>
+    </div>
+
+    <div class="duo">
+      <div class="coin bound">
+        <h3>Bound shells <span class="tag">soft · in-game</span></h3>
+        <ul>
+          <li>Earned freely through play, daily tasks and milestones.</li>
+          <li>Spent on in-game costs and upgrades. It's the game's pocket money.</li>
+          <li>Can't be cashed out. Stays in the world, by design.</li>
+        </ul>
+      </div>
+      <div class="coin conv">
+        <h3>Convertible <span class="tag">hard · withdrawable</span></h3>
+        <ul>
+          <li>Backed 1:1 by deposited <a data-token href="#" class="mono">$SHELLS</a> held in reserve.</li>
+          <li>Earned only from other players, sales and service fees.</li>
+          <li>Withdraw to real <span class="mono">$SHELLS</span> whenever you like.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rule" style="margin-top:1.4rem;">
+      <p class="eyebrow">The one rule</p>
+      <p>Playing the game <strong>never creates</strong> Convertible out of thin air. Every unit is a real deposit, and trade only moves it from one player to another. The single deduction is a small market tax that returns to the reserve, so the books always balance.</p>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="tideline" aria-hidden="true"></div></div>
+
+  <!-- CTA -->
+  <section class="section section--tight wrap" style="text-align:center;">
+    <h2 style="font-size:clamp(1.6rem,4vw,2.4rem);">Cast off</h2>
+    <p style="color:var(--muted); max-width:42ch; margin:.7rem auto 1.6rem;">New to the harbor? The Codex explains every system, skill, and the economy in plain terms. Or just dive in.</p>
+    <div class="hero-cta">
+      <a class="btn btn--brass" href="game.html">Enter the harbor</a>
+      <a class="btn" href="codex.html">Read the Codex</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap foot">
+    <a class="brand" href="index.html">Tidehold</a>
+    <div style="display:flex; gap:1.2rem; flex-wrap:wrap;">
+      <a href="codex.html">Codex</a>
+      <a href="ledger.html">Ledger</a>
+      <a data-token href="#">$SHELLS token</a>
+      <a href="game.html">Play</a>
+    </div>
+    <small>© <span data-year>2026</span> Tidehold</small>
+  </div>
+</footer>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

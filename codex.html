@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Codex | Tidehold</title>
+<meta name="description" content="How Tidehold works: earning Convertible, the two-currency economy, what every resource and skill does, and a guide to each system: gathering, crafting, blueprints, building, the Quay, and banking." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <svg class="mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2c2.5 3 4 5.5 4 8a4 4 0 1 1-8 0c0-2.5 1.5-5 4-8z" fill="currentColor"/><path d="M3 18c2 0 2.5 1.5 4.5 1.5S10 18 12 18s2.5 1.5 4.5 1.5S19 18 21 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      Tidehold
+    </a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">Menu</button>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Harbor</a>
+      <a href="codex.html" aria-current="page">Codex</a>
+      <a href="ledger.html">Ledger</a>
+      <a class="btn btn--sm btn--ghost" href="game.html">Play</a>
+    </nav>
+  </div>
+</header>
+
+<main class="section wrap">
+  <div class="head">
+    <p class="eyebrow">The Codex</p>
+    <h2>Everything you need to make a living</h2>
+    <p>A plain-language guide to how Tidehold works, where money comes from, what each resource and skill is for, and how every system fits together.</p>
+  </div>
+
+  <div class="codex">
+    <!-- CONTENTS -->
+    <aside class="toc">
+      <h4>Contents</h4>
+      <a href="#start">Getting started</a>
+      <a href="#earn">How you earn</a>
+      <a href="#economy">Currencies &amp; economy</a>
+      <a href="#resources">Resources</a>
+      <a href="#skills">Skills &amp; leveling</a>
+      <a href="#gathering">Gathering</a>
+      <a href="#crafting">Crafting &amp; blueprints</a>
+      <a href="#building">Building &amp; islands</a>
+      <a href="#market">The Quay</a>
+      <a href="#banking">Banking</a>
+      <a href="#sailing">Sailing</a>
+    </aside>
+
+    <!-- BODY -->
+    <article class="doc">
+
+      <section id="start">
+        <span class="eyebrow">First tide</span>
+        <h2>Getting started</h2>
+        <p>You arrive with empty hands and an island to your name. The loop is simple to learn and deep to master: <strong>gather</strong> raw materials from the world, <strong>learn blueprints</strong> to unlock recipes, <strong>craft</strong> those materials into goods and machines, then <strong>build</strong> with them or <strong>sell</strong> them to other players.</p>
+        <p>Nothing here is on rails. What your island becomes (a lumber yard, a workshop, a trading post) is up to what you choose to make and the fees you choose to charge. Connect a Solana wallet to claim ownership of what you earn; everything you craft and trade is yours.</p>
+        <p class="note">New players never need to spend real money. You can gather, craft, level every skill, and trade your way up entirely from scratch.</p>
+      </section>
+
+      <section id="earn">
+        <span class="eyebrow">The point of it all</span>
+        <h2>How you earn</h2>
+        <p>Real, withdrawable value in Tidehold is called <strong>Convertible</strong>. The game never hands it out for grinding, you earn it by making things other players want and providing services they'll pay for. There are three honest ways to build a balance:</p>
+        <h3>1 · Sell on the Quay</h3>
+        <p>Anything you craft (planks, gears, finished buildings like a Lumber Mill) and any spare blueprints you find can be listed on the market. When a buyer takes your offer, you're paid in Convertible, minus a small <strong>2% market tax</strong>. Rare and hard-to-make goods command the best prices.</p>
+        <h3>2 · Charge for your stations</h3>
+        <p>Buildings you place can carry a <strong>usage fee</strong>. When another player crafts at your Lumber Mill or workshop, they pay that fee to you in Convertible. Build the machines people need, set a fair price, and your island earns while you're busy elsewhere.</p>
+        <h3>3 · Deposit and withdraw</h3>
+        <p>You can bring real <span class="mono">$SHELLS</span> into the game to get Convertible at a fixed rate, and withdraw Convertible back to <span class="mono">$SHELLS</span> at any time. Deposits aren't "earning" (they're moving your own value in and out), but they're how proceeds become real tokens in your wallet.</p>
+        <p class="note">Because the economy is zero-sum (see below), every Convertible you earn came from another player who chose to spend it. That's what keeps prices and payouts real.</p>
+      </section>
+
+      <section id="economy">
+        <span class="eyebrow">How the money works</span>
+        <h2>Currencies &amp; economy</h2>
+        <p>Tidehold uses two currencies on purpose, so casual play and real value never blur together.</p>
+
+        <table class="deftable">
+          <thead><tr><th>Currency</th><th>What it is</th><th>How you get it</th><th>Cash out?</th></tr></thead>
+          <tbody>
+            <tr><td>Bound</td><td>Soft, in-game money</td><td>Earned freely from play and milestones</td><td>No, stays in the world</td></tr>
+            <tr><td>Convertible</td><td>Hard value, deposit-backed</td><td>Only from other players, via trade and fees</td><td>Yes, withdraw to $SHELLS</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Backed by a real reserve</h3>
+        <p>Every unit of Convertible is backed by deposited tokens held in the Bank of Tidehold's reserve, at a fixed rate of <strong>1 Convertible = 1,000,000 <span class="mono">$SHELLS</span></strong>. Because the reserve only grows when someone deposits and only shrinks when someone withdraws, balances always add up to real tokens that exist.</p>
+
+        <h3>The one rule that keeps it honest</h3>
+        <div class="rule" style="margin:1rem 0;">
+          <p>Gameplay <strong>cannot mint</strong> Convertible. Selling, buying, and station fees only <strong>move</strong> it between players: what one account gains, another spent. The single deduction anywhere is the 2% market tax, which returns to the reserve as a sink. No faucet, no inflation, no surprise dilution.</p>
+        </div>
+        <p>Bound currency is the opposite by design: it has small faucets (daily tasks) and plenty of sinks, so it stays useful without ever becoming "real money." Keeping the two separate is what lets the world be generous with fun while staying disciplined with value.</p>
+        <p class="note">Withdrawals are subject to a rolling daily cap. It's a safety valve, not a tax, your balance is always yours.</p>
+      </section>
+
+      <section id="resources">
+        <span class="eyebrow">Raw stock to finished goods</span>
+        <h2>Resources</h2>
+        <p>Materials fall into a chain: you gather <strong>raw</strong> stock, refine it into <strong>components</strong>, then combine components into <strong>buildings</strong>. Two special drops (blueprints and lamps) turn up while you gather.</p>
+
+        <table class="deftable">
+          <thead><tr><th>Resource</th><th>Source</th><th>What it's for</th></tr></thead>
+          <tbody>
+            <tr><td>Wood</td><td>Woodcutting</td><td>Raw stock. Refined into Planks.</td></tr>
+            <tr><td>Metal</td><td>Mining</td><td>Raw stock. Refined into Gears.</td></tr>
+            <tr><td>Fish</td><td>Fishing</td><td>Provisions and a steady trade good.</td></tr>
+            <tr><td>Forage</td><td>Foraging</td><td>Herbs and plants, trade goods and ingredients.</td></tr>
+            <tr><td>Planks</td><td>Crafted from Wood</td><td>A core building component. Needs the Plank blueprint.</td></tr>
+            <tr><td>Gears</td><td>Crafted from Metal</td><td>A core building component. Needs the Gear blueprint.</td></tr>
+            <tr><td>Buildings</td><td>Crafted from components</td><td>Placed on your island or sold. E.g. the Lumber Mill.</td></tr>
+            <tr><td>Blueprints</td><td>Found while gathering</td><td>Learn one to unlock its recipe, or sell it. Tradeable.</td></tr>
+            <tr><td>Skill lamps</td><td>Found while gathering</td><td>Use for instant skill XP. Bound to you, not tradeable.</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Blueprints</h3>
+        <p>Blueprints are the keys to crafting. They drop occasionally as you gather, in three tiers: <strong>Common</strong>, <strong>Uncommon</strong>, and <strong>Rare</strong>. Learning a blueprint permanently unlocks its recipe for your account. You can hold up to three copies of any one blueprint, and the more copies of a given blueprint you're already carrying, the less likely another of the same is to drop, so duplicates spread around rather than piling up. A spare blueprint is a valuable thing to sell.</p>
+
+        <h3>Skill lamps</h3>
+        <p>Lamps are a shortcut for leveling. Each grants a chunk of XP, some to a specific skill, some to a random one. They're bound to your account and can't be traded, so they reward your own time in the world.</p>
+      </section>
+
+      <section id="skills">
+        <span class="eyebrow">What you get good at</span>
+        <h2>Skills &amp; leveling</h2>
+        <p>Every skill levels the same way: <strong>do the activity</strong> and earn XP. Higher levels open better nodes, more recipes, and sturdier builds. Skill lamps can give a level a push, but the world is the main teacher.</p>
+
+        <table class="deftable">
+          <thead><tr><th>Skill</th><th>What it does</th><th>How to level it</th></tr></thead>
+          <tbody>
+            <tr><td>Woodcutting</td><td>Fells trees for Wood</td><td>Chop trees. Better groves open with level.</td></tr>
+            <tr><td>Mining</td><td>Breaks rock for Metal</td><td>Mine ore nodes. Richer veins open with level.</td></tr>
+            <tr><td>Fishing</td><td>Catches Fish</td><td>Fish the shallows and deeps.</td></tr>
+            <tr><td>Foraging</td><td>Collects herbs &amp; plants</td><td>Forage across the islands.</td></tr>
+            <tr><td>Crafting</td><td>Turns materials into goods</td><td>Craft at your bench and stations.</td></tr>
+            <tr><td>Building</td><td>Places structures</td><td>Build crafted items onto islands.</td></tr>
+            <tr><td>Sailing</td><td>Players your boat</td><td>Sail between islands and across open water.</td></tr>
+          </tbody>
+        </table>
+        <p class="note">Skills are account-wide and permanent. There's no respec to worry about, every level you earn stays earned.</p>
+      </section>
+
+      <section id="gathering">
+        <span class="eyebrow">System</span>
+        <h2>Gathering</h2>
+        <p>Gathering is where everything begins. Resource nodes (trees, rock, fishing spots, forage patches) are scattered across the islands. Work them with the matching skill to collect raw materials, earn XP, and occasionally turn up a <strong>blueprint</strong> or <strong>skill lamp</strong>. Some nodes sit on islands owned by other players, who may charge a small fee to harvest there.</p>
+        <p>There's no energy meter or daily limit on gathering, the constraint is your time and which nodes your skill levels can reach.</p>
+      </section>
+
+      <section id="crafting">
+        <span class="eyebrow">System</span>
+        <h2>Crafting &amp; blueprints</h2>
+        <p>Crafting turns raw stock into things worth having. Each recipe needs its <strong>blueprint learned</strong> first, and some recipes need a <strong>station</strong> (a placed building) to work at. The chain looks like this:</p>
+        <ol>
+          <li>Gather <strong>Wood</strong> and <strong>Metal</strong>.</li>
+          <li>Find and learn the <strong>Plank</strong> and <strong>Gear</strong> blueprints, then craft Planks and Gears.</li>
+          <li>Find and learn the <strong>Lumber Mill</strong> blueprint.</li>
+          <li>Craft the Lumber Mill from Planks and Gears, now you hold the building as an item.</li>
+          <li><strong>Build</strong> it on your island, or <strong>sell</strong> it on the market.</li>
+        </ol>
+        <p>Crafting is where materials get spent, so the value of a finished good reflects everything that went into it. That's deliberate: it's what gives the things you sell a real floor price.</p>
+      </section>
+
+      <section id="building">
+        <span class="eyebrow">System</span>
+        <h2>Building &amp; islands</h2>
+        <p>Your island is your claim. You decide what gets placed on it, who's allowed to build, and what your stations cost to use.</p>
+        <h3>Build from what you craft</h3>
+        <p>Buildings aren't paid for in raw resources, you craft the building as an item first, then <strong>placing it consumes that item</strong>. Because crafting already spent the materials, building itself costs nothing extra. You can only place a building whose blueprint you've learned, even if you bought the finished item from someone else, the blueprint is the right to build, and it keeps its value.</p>
+        <h3>Stations and fees</h3>
+        <p>Many buildings are working stations. Set a <strong>usage fee</strong> on yours and other players who craft there pay you in Convertible. Price it well and a busy station becomes a steady income.</p>
+        <p class="note">Specialize however you like, there's no fixed "island type." Your purpose emerges from what you build and the permissions you set.</p>
+      </section>
+
+      <section id="market">
+        <span class="eyebrow">System</span>
+        <h2>The Quay</h2>
+        <p>The Quay is Tidehold's player-run marketplace, a true order book, not a fixed shop.</p>
+        <ul>
+          <li><strong>Post offers.</strong> List a sell offer at your asking price, or a buy offer at the most you'll pay.</li>
+          <li><strong>The market matches.</strong> When a buy and sell overlap, the trade fills at the resting order's price, so a new order can only get the same price or better, never worse.</li>
+          <li><strong>Funds are escrowed.</strong> Your coins or goods are held the moment you post, so every offer on the book is real and backed.</li>
+          <li><strong>Partial fills welcome.</strong> Large offers fill piece by piece as counterparties appear.</li>
+          <li><strong>A collection box keeps you safe offline.</strong> Proceeds and bought goods land in your box; nothing is lost if you log off mid-trade. Collect them next time you're in.</li>
+        </ul>
+        <p>A flat <strong>2% tax</strong> is withheld from the seller on every fill and returned to the reserve. It's the only leak in the whole economy, and it's a sink, it never pays anyone out.</p>
+      </section>
+
+      <section id="banking">
+        <span class="eyebrow">System</span>
+        <h2>Banking</h2>
+        <p>The Bank of Tidehold is the bridge between the game and your wallet.</p>
+        <ul>
+          <li><strong>Deposit</strong> <span class="mono">$SHELLS</span> to receive Convertible at <strong>1,000,000&nbsp;$SHELLS = 1 Convertible</strong>. Your deposit joins the reserve that backs everyone's balance.</li>
+          <li><strong>Withdraw</strong> Convertible to send <span class="mono">$SHELLS</span> back to your wallet, any time, up to a rolling daily cap.</li>
+        </ul>
+        <p>The reserve is held separately and only ever signs payouts you've earned or deposited. Because deposits in and withdrawals out are the only ways tokens enter or leave, the bank stays fully backed at all times.</p>
+      </section>
+
+      <section id="sailing">
+        <span class="eyebrow">System</span>
+        <h2>Sailing</h2>
+        <p>The islands are spread across open water, and a boat is how you cross it. Step from land to your vessel to switch into sailing, then chart a course to other islands to gather where the nodes are richer, visit markets, or work a friend's stations. Sailing is its own skill, the more you sail, the better you handle the water.</p>
+      </section>
+
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap foot">
+    <a class="brand" href="index.html">Tidehold</a>
+    <div style="display:flex; gap:1.2rem; flex-wrap:wrap;">
+      <a href="codex.html">Codex</a>
+      <a href="ledger.html">Ledger</a>
+      <a data-token href="#">$SHELLS token</a>
+      <a href="game.html">Play</a>
+    </div>
+    <small>© <span data-year>2026</span> Tidehold</small>
+  </div>
+</footer>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

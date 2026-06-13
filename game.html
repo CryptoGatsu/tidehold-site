@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Play | Tidehold</title>
+<meta name="description" content="Play Tidehold in your browser." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <svg class="mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2c2.5 3 4 5.5 4 8a4 4 0 1 1-8 0c0-2.5 1.5-5 4-8z" fill="currentColor"/><path d="M3 18c2 0 2.5 1.5 4.5 1.5S10 18 12 18s2.5 1.5 4.5 1.5S19 18 21 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      Tidehold
+    </a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">Menu</button>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Harbor</a>
+      <a href="codex.html">Codex</a>
+      <a href="ledger.html">Ledger</a>
+      <a class="btn btn--sm btn--ghost" href="game.html" aria-current="page">Play</a>
+    </nav>
+  </div>
+</header>
+
+<main class="game-main">
+  <div class="game-bar wrap">
+    <div><span class="eyebrow">Now playing</span> &nbsp;<strong style="font-family:'Cinzel',serif; letter-spacing:.08em;">Tidehold</strong></div>
+    <div class="game-actions">
+      <span class="live-badge"><span class="live-dot"></span><span id="livePlayers">0</span> online</span>
+      <button class="btn btn--sm" id="gameFullscreen">Fullscreen</button>
+      <a class="btn btn--sm btn--ghost" data-play href="#">Open in new tab</a>
+    </div>
+  </div>
+
+  <div class="game-stage">
+    <iframe id="gameFrame" title="Tidehold game"
+            allow="fullscreen; autoplay; clipboard-write; gamepad; xr-spatial-tracking"
+            allowfullscreen></iframe>
+  </div>
+  <p class="game-fallback">Trouble loading? <a data-play href="#">Open the game in a new tab</a>.</p>
+</main>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

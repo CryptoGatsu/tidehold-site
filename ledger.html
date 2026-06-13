@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Ledger | Tidehold</title>
+<meta name="description" content="Live numbers from the world of Tidehold: total materials gathered, market volume, the largest sale, and the top players." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <svg class="mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2c2.5 3 4 5.5 4 8a4 4 0 1 1-8 0c0-2.5 1.5-5 4-8z" fill="currentColor"/><path d="M3 18c2 0 2.5 1.5 4.5 1.5S10 18 12 18s2.5 1.5 4.5 1.5S19 18 21 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      Tidehold
+    </a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">Menu</button>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Harbor</a>
+      <a href="codex.html">Codex</a>
+      <a href="ledger.html" aria-current="page">Ledger</a>
+      <a class="btn btn--sm btn--ghost" href="game.html">Play</a>
+    </nav>
+  </div>
+</header>
+
+<main class="section wrap">
+  <div class="head">
+    <p class="eyebrow">The Ledger</p>
+    <h2>The state of the sea</h2>
+    <p>Everything the harbor has recorded, totals across all players, the largest sale on the books, and who's risen to the top.</p>
+  </div>
+
+  <p class="ledger-status" id="status"><span class="dot" id="statusDot"></span><span id="statusText">Reading the ledger…</span></p>
+
+  <!-- TOTALS -->
+  <div class="gauges" id="gauges"></div>
+
+  <div class="board">
+    <!-- LEADERBOARD -->
+    <div class="panel">
+      <span class="eyebrow">Top players</span>
+      <ul class="rank" id="rank"></ul>
+    </div>
+
+    <!-- BIGGEST SALE -->
+    <div class="panel">
+      <span class="eyebrow">Largest sale on record</span>
+      <div class="sale" id="sale"></div>
+    </div>
+  </div>
+
+  <!-- TOP MATERIALS -->
+  <div class="panel" style="margin-top:1.4rem;">
+    <span class="eyebrow">Most-gathered materials</span>
+    <ul class="bars" id="materials"></ul>
+  </div>
+
+  <p class="note" style="color:var(--faint); font-family:'JetBrains Mono',monospace; font-size:.72rem; margin-top:1.4rem;">
+    Convertible shown alongside raw $SHELLS at 1 Convertible = 1,000,000 $SHELLS.
+  </p>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap foot">
+    <a class="brand" href="index.html">Tidehold</a>
+    <div style="display:flex; gap:1.2rem; flex-wrap:wrap;">
+      <a href="codex.html">Codex</a>
+      <a href="ledger.html">Ledger</a>
+      <a data-token href="#">$SHELLS token</a>
+      <a href="game.html">Play</a>
+    </div>
+    <small>© <span data-year>2026</span> Tidehold</small>
+  </div>
+</footer>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+<script src="stats.js"></script>
+</body>
+</html>
