@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Tidehold">
+  <rect width="32" height="32" rx="7" fill="#0e2127"/>
+  <rect x="0.5" y="0.5" width="31" height="31" rx="6.5" fill="none" stroke="#234c55" stroke-width="1"/>
+  <path d="M16 5.2c3.4 4 5.3 7.3 5.3 10.6a5.3 5.3 0 1 1-10.6 0C10.7 12.5 12.6 9.2 16 5.2z" fill="#c9a25e"/>
+  <path d="M16 9.5c1.8 2.3 2.8 4.2 2.8 6a2.8 2.8 0 0 1-2.8 2.8z" fill="#e3c184" opacity="0.7"/>
+  <path d="M5 24.5c2.3 0 2.9-1.7 5.2-1.7s2.9 1.7 5.8 1.7 2.9-1.7 5.2-1.7 2.9 1.7 5.8 1.7" fill="none" stroke="#7fb7ad" stroke-width="2.1" stroke-linecap="round"/>
+</svg>
