@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Tidehold Wallet Test</title>
+<style>
+  :root { color-scheme: dark; }
+  body {
+    margin: 0; padding: 18px;
+    background: #0b1a1f; color: #ece0c6;
+    font-family: system-ui, -apple-system, sans-serif; line-height: 1.45;
+  }
+  h1 { font-size: 19px; margin: 0 0 4px; color: #c9a25e; }
+  p  { font-size: 13px; color: #7fb7ad; margin: 0 0 14px; }
+  .env {
+    background: #102a31; border: 1px solid #234c55; border-radius: 10px;
+    padding: 10px 12px; font-size: 12.5px; margin-bottom: 14px; word-break: break-word;
+  }
+  .env div { margin: 2px 0; }
+  .env b { color: #c9a25e; }
+  button {
+    display: block; width: 100%; box-sizing: border-box;
+    appearance: none; border: 1px solid #c9a25e; background: #c9a25e; color: #0b1a1f;
+    font-weight: 700; font-size: 16px; padding: 14px; border-radius: 12px;
+    margin: 0 0 10px; cursor: pointer;
+  }
+  button.ghost { background: transparent; color: #7fb7ad; border-color: #234c55; font-weight: 500; }
+  #log {
+    background: #08151a; border: 1px solid #234c55; border-radius: 10px;
+    padding: 10px 12px; font-family: ui-monospace, monospace; font-size: 12px;
+    white-space: pre-wrap; word-break: break-word; min-height: 120px; margin-top: 8px;
+  }
+  .ok { color: #7fb7ad; } .err { color: #e08a7a; } .info { color: #c9a25e; }
+</style>
+</head>
+<body>
+  <h1>Tidehold Wallet Test</h1>
+  <p>Open this page inside Phantom's in-app browser. Tap the buttons in order and read the log.</p>
+
+  <div class="env" id="env">checking environment…</div>
+
+  <button id="b1">1 — Connect</button>
+  <button id="b2">2 — Sign test message</button>
+  <button id="b3" class="ghost">Connect + Sign (one tap)</button>
+  <button id="b4" class="ghost">Clear log</button>
+
+  <div id="log"></div>
+
+<script>
+(function () {
+  var logEl = document.getElementById("log");
+  function log(msg, cls) {
+    var t = new Date().toLocaleTimeString();
+    var line = document.createElement("div");
+    if (cls) line.className = cls;
+    line.textContent = "[" + t + "] " + msg;
+    logEl.appendChild(line);
+    logEl.scrollTop = logEl.scrollHeight;
+  }
+  function provider() { return (window.phantom && window.phantom.solana) || window.solana || null; }
+
+  // Pull every useful field off an error so we can see the real cause (code is the key one).
+  function describe(err) {
+    if (!err) return "unknown error";
+    var parts = [];
+    if (typeof err.code !== "undefined") parts.push("code=" + err.code);
+    if (err.name) parts.push("name=" + err.name);
+    if (err.message) parts.push("msg=" + err.message);
+    var extra = "";
+    try { extra = JSON.stringify(err); } catch (e) {}
+    if (extra && extra !== "{}") parts.push("raw=" + extra);
+    return parts.join("  ");
+  }
+
+  function refreshEnv() {
+    var p = provider();
+    var env = document.getElementById("env");
+    env.innerHTML =
+      "<div><b>window.solana:</b> " + (!!window.solana) + "</div>" +
+      "<div><b>window.phantom.solana:</b> " + !!(window.phantom && window.phantom.solana) + "</div>" +
+      "<div><b>isPhantom:</b> " + (p ? !!p.isPhantom : "n/a") + "</div>" +
+      "<div><b>isConnected:</b> " + (p ? !!p.isConnected : "n/a") + "</div>" +
+      "<div><b>publicKey:</b> " + (p && p.publicKey ? p.publicKey.toString() : "none") + "</div>" +
+      "<div><b>UA:</b> " + navigator.userAgent + "</div>";
+  }
+
+  // ---- 1. Connect ----
+  function doConnect() {
+    var p = provider();
+    if (!p) { log("No provider found (window.solana / window.phantom.solana are both missing).", "err"); return; }
+    log("calling provider.connect() …", "info");
+    p.connect().then(function (resp) {
+      var key = (resp && resp.publicKey) ? resp.publicKey.toString()
+              : (p.publicKey ? p.publicKey.toString() : "(none)");
+      log("CONNECT OK — publicKey=" + key, "ok");
+      refreshEnv();
+    }).catch(function (err) {
+      log("CONNECT FAILED — " + describe(err), "err");
+      refreshEnv();
+    });
+  }
+
+  // ---- 2. Sign (assumes already connected) ----
+  function doSign() {
+    var p = provider();
+    if (!p) { log("No provider found.", "err"); return; }
+    if (!p.isConnected || !p.publicKey) { log("Not connected yet — run step 1 first (or use the combined button).", "err"); return; }
+    var nonce = "Tidehold test nonce " + Date.now();
+    var encoded = new TextEncoder().encode(nonce);
+    log("calling provider.signMessage() for: " + nonce, "info");
+    p.signMessage(encoded, "utf8").then(function (res) {
+      var sigLen = res && res.signature ? res.signature.length : 0;
+      log("SIGN OK — signature length=" + sigLen + " bytes", "ok");
+    }).catch(function (err) {
+      log("SIGN FAILED — " + describe(err), "err");
+    });
+  }
+
+  // ---- combined: connect then sign, sign fired in the SAME tap if already connected ----
+  function doBoth() {
+    var p = provider();
+    if (!p) { log("No provider found.", "err"); return; }
+    var nonce = "Tidehold test nonce " + Date.now();
+    var encoded = new TextEncoder().encode(nonce);
+    function sign() {
+      log("calling signMessage() …", "info");
+      return p.signMessage(encoded, "utf8");
+    }
+    log("combined connect+sign …", "info");
+    var run = (p.isConnected && p.publicKey) ? sign() : p.connect().then(function () { log("connected, now signing", "info"); return sign(); });
+    Promise.resolve(run).then(function (res) {
+      var sigLen = res && res.signature ? res.signature.length : 0;
+      log("COMBINED OK — signature length=" + sigLen, "ok");
+      refreshEnv();
+    }).catch(function (err) {
+      log("COMBINED FAILED — " + describe(err), "err");
+      refreshEnv();
+    });
+  }
+
+  document.getElementById("b1").addEventListener("click", doConnect);
+  document.getElementById("b2").addEventListener("click", doSign);
+  document.getElementById("b3").addEventListener("click", doBoth);
+  document.getElementById("b4").addEventListener("click", function () { logEl.innerHTML = ""; });
+
+  // Phantom injects asynchronously; give it a moment, then show the environment.
+  var tries = 0;
+  (function waitProvider() {
+    if (provider() || tries > 20) { refreshEnv(); log(provider() ? "provider detected." : "no provider after wait.", provider() ? "ok" : "err"); return; }
+    tries++; setTimeout(waitProvider, 150);
+  })();
+})();
+</script>
+</body>
+</html>
