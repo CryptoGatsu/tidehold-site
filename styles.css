@@ -412,15 +412,31 @@ h1, h2, h3, .display {
 .ws-skills b { color: var(--foam-bright); font-weight: 500; font-size: .8rem; }
 .ws-empty { color: var(--muted); font-size: .94rem; }
 
-/* embedded game */
-.game-main { display: flex; flex-direction: column; min-height: calc(100vh - 58px); }
-.game-bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding-block: .8rem; }
+/* embedded game.
+   The whole page is locked to the VISIBLE viewport height (--app-height, set from visualViewport by
+   app.js; dvh fallback) so in-app browsers like Phantom can't push the bottom of the game behind their
+   toolbar. No page scroll: header + bar + fallback are fixed, the stage fills the rest. */
+.game-page { height: var(--app-height, 100dvh); overflow: hidden; display: flex; flex-direction: column; }
+.game-page .site-header { position: static; flex: 0 0 auto; }     /* part of the column, not sticky */
+.game-main { flex: 1 1 auto; display: flex; flex-direction: column; min-height: 0; }
+.game-bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding-block: .8rem; flex: 0 0 auto; }
 .game-bar .eyebrow { color: var(--faint); }
 .game-actions { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; }
-.game-stage { position: relative; width: 100%; background: #05080a; border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
-#gameFrame { display: block; width: 100%; height: min(82vh, 860px); min-height: 420px; border: 0; }
-.game-fallback { text-align: center; color: var(--faint); font-family: "JetBrains Mono", monospace; font-size: .76rem; padding: .9rem; }
-@media (max-width: 560px) {
-  #gameFrame { height: 70vh; }
-  .ws-figs { grid-template-columns: 1fr 1fr; }
+.game-stage {
+  flex: 1 1 auto; min-height: 0; display: flex; align-items: center; justify-content: center;
+  background: #05080a; border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft);
 }
+#gameFrame { display: block; width: 100%; height: 100%; border: 0; }
+.game-fallback {
+  text-align: center; color: var(--faint); font-family: "JetBrains Mono", monospace; font-size: .76rem;
+  padding: .9rem; flex: 0 0 auto; padding-bottom: calc(.9rem + env(safe-area-inset-bottom, 0px));
+}
+/* Desktop: present the game as a clean 16:9 area so the landscape UI has a fixed design target (1920x1080).
+   Wider screens pillarbox at the sides rather than stretching the canvas. */
+@media (min-width: 821px) {
+  #gameFrame { width: auto; height: 100%; aspect-ratio: 16 / 9; max-width: 100%; }
+}
+
+/* small-screen wallet stats + safe-area footer (so in-app browser toolbars don't clip it) */
+@media (max-width: 560px) { .ws-figs { grid-template-columns: 1fr 1fr; } }
+.site-footer { padding-bottom: calc(2.6rem + env(safe-area-inset-bottom, 0px)); }

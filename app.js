@@ -185,4 +185,20 @@
       else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
     });
   }
+
+  /* Keep the game page sized to the VISIBLE viewport so in-app browser bars (Phantom) don't clip the
+     bottom of the embed. visualViewport.height excludes the toolbar; dvh is the CSS fallback. */
+  if (document.body.classList.contains("game-page")) {
+    var setAppHeight = function () {
+      var h = (window.visualViewport && window.visualViewport.height) || window.innerHeight;
+      document.documentElement.style.setProperty("--app-height", h + "px");
+    };
+    setAppHeight();
+    window.addEventListener("resize", setAppHeight);
+    window.addEventListener("orientationchange", setAppHeight);
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener("resize", setAppHeight);
+      window.visualViewport.addEventListener("scroll", setAppHeight);
+    }
+  }
 })();
