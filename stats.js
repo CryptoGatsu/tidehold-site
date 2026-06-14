@@ -14,6 +14,7 @@
        "withdrawnShells":   0,      // GameStats ShellsWithdrawn
        "totalPlayers":     0,      // total accounts ever
        "onlinePlayers":    0,      // currently connected (live count)
+       "peakConcurrent":   0,      // all-time peak simultaneous players
        "islandsClaimed":    0,      // owned islands (needs server tally)
        "convertibleInPlay": 0       // backing reserve, in shells (optional)
      },
@@ -78,6 +79,7 @@
     document.getElementById("gauges").innerHTML = [
       gauge("$SHELLS market cap", fmtUsd(tok.marketCapUsd), priceSub(tok.priceUsd)),
       gauge("Online now", nf(t.onlinePlayers)),
+      gauge("Peak concurrent", nf(t.peakConcurrent), "all-time high"),
       gauge("Total players", nf(t.totalPlayers)),
       gauge("Materials gathered", nf(t.materialsGathered)),
       gauge("Items crafted", nf(t.craftsCompleted)),
@@ -152,7 +154,7 @@
       materialsGathered: 184320, craftsCompleted: 12774,
       marketVolumeShells: 9450000000, marketTaxShells: 189000000,
       withdrawnShells: 3120000000, convertibleInPlay: 14200000000,
-      totalPlayers: 327, onlinePlayers: 18, islandsClaimed: 291
+      totalPlayers: 327, onlinePlayers: 18, peakConcurrent: 64, islandsClaimed: 291
     },
     token: { symbol: "$SHELLS", priceUsd: 0.00023, marketCapUsd: 228000 },
     topPlayers: [
