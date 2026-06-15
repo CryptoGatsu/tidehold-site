@@ -77,7 +77,10 @@
     var tok = data.token || {};
 
     document.getElementById("gauges").innerHTML = [
-      gauge("$SHELLS market cap", fmtUsd(tok.marketCapUsd), priceSub(tok.priceUsd)),
+      // Market cap + price are refreshed live by market.js (Dexscreener); the feed value is just the initial.
+      '<div class="gauge"><div class="label">$SHELLS market cap</div>' +
+        '<div class="value"><span data-shells-mcap>' + fmtUsd(tok.marketCapUsd) + '</span></div>' +
+        '<div class="sub"><span data-shells-price>' + esc(priceSub(tok.priceUsd)) + '</span></div></div>',
       gauge("Online now", nf(t.onlinePlayers)),
       gauge("Peak concurrent", nf(t.peakConcurrent), "all-time high"),
       gauge("Total players", nf(t.totalPlayers)),
@@ -145,6 +148,9 @@
       dot.className = "dot sample";
       txt.textContent = "Sample figures, connect the stats feed to go live (see config.js).";
     }
+
+    // Gauges exist now -> let the live market module fill the cap/price immediately.
+    if (window.TideholdMarket) window.TideholdMarket.pull();
   }
 
   /* ---------- demo fallback so the page is reviewable before the feed exists ---------- */

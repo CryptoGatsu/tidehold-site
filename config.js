@@ -8,9 +8,10 @@ window.TIDEHOLD_CONFIG = {
   // expected shape and how to expose it from the droplet (Caddy serving the public stats file).
   statsUrl: "https://game.tidehold.world/stats.json",
 
-  // Per-wallet public profiles (players/<wallet>.json). Used to show a player their own stats on connect.
-  // Serve the public dir's players/ subfolder via Caddy (see the /players/ route in the Caddy setup).
-  playerStatsBase: "https://game.tidehold.world/players/",
+  // Per-wallet public profiles (profiles/<wallet>.json). Used to show a player their own stats on connect.
+  // NOTE: this is profiles/, NOT players/ — players/ is the game's authoritative save dir and must never be
+  // web-served or shared. Serve the public dir's profiles/ subfolder via Caddy (add a /profiles/ route).
+  playerStatsBase: "https://game.tidehold.world/profiles/",
 
   // $SHELLS token (pump.fun). Used for the "view token" link and display only.
   tokenMint: "7BsaJwmcg6cdwPxiUkrbiGHq7qiCEDjG2SvJcXCDpump",

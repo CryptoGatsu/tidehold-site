@@ -402,7 +402,7 @@ h1, h2, h3, .display {
 .ws-head { display: flex; justify-content: space-between; align-items: baseline; gap: .6rem; }
 .ws-head h3 { font-size: 1.15rem; color: var(--brass-bright); }
 .ws-wallet { color: var(--faint); font-size: .74rem; }
-.ws-figs { display: grid; grid-template-columns: repeat(3,1fr); gap: .6rem; margin: 1rem 0 .4rem; }
+.ws-figs { display: grid; grid-template-columns: repeat(4,1fr); gap: .6rem; margin: 1rem 0 .4rem; }
 .ws-figs > div { background: var(--ink-2); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: .65rem .5rem; text-align: center; }
 .ws-label { display: block; font-size: .58rem; letter-spacing: .16em; text-transform: uppercase; color: var(--faint); }
 .ws-val { display: block; color: var(--parchment); font-weight: 700; margin-top: .25rem; font-size: .98rem; }
@@ -411,6 +411,13 @@ h1, h2, h3, .display {
 .ws-skills li { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--line-soft); padding: .35rem 0; font-size: .92rem; }
 .ws-skills b { color: var(--foam-bright); font-weight: 500; font-size: .8rem; }
 .ws-empty { color: var(--muted); font-size: .94rem; }
+.ws-count { color: var(--faint); font-size: .72rem; }
+.ws-achs { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .4rem; }
+.ws-achs .ws-empty { width: 100%; }
+.ws-ach {
+  background: var(--ink-2); border: 1px solid var(--line-soft); border-radius: 999px;
+  padding: .3rem .7rem; font-size: .82rem; color: var(--foam-bright); line-height: 1;
+}
 
 /* embedded game.
    The whole page is locked to the VISIBLE viewport height (--app-height, set from visualViewport by

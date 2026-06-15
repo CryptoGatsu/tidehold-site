@@ -127,6 +127,11 @@
       return '<li><span>' + esc(s.skill) + '</span><b class="mono">Lv ' + (s.level || 1) + '</b></li>';
     }).join("") || '<li class="ws-empty">No skills trained yet.</li>';
 
+    var achs = pr.achievements || [];
+    var achHtml = achs.length
+      ? achs.map(function (a) { return '<li class="ws-ach">' + esc(a) + '</li>'; }).join("")
+      : '<li class="ws-empty">No achievements earned yet.</li>';
+
     panel.innerHTML =
       '<div class="ws-head"><h3>' + esc(pr.name || short(wallet)) + '</h3>' +
         '<span class="ws-wallet mono">' + esc(short(wallet)) + '</span></div>' +
@@ -134,8 +139,11 @@
         '<div><span class="ws-label">Convertible</span><span class="ws-val mono">' + fmtConv(pr.convertibleShells) + ' C</span></div>' +
         '<div><span class="ws-label">Bound</span><span class="ws-val mono">' + nf(pr.bound) + '</span></div>' +
         '<div><span class="ws-label">Blueprints</span><span class="ws-val mono">' + nf(pr.blueprintsLearned) + '</span></div>' +
+        '<div><span class="ws-label">Quest points</span><span class="ws-val mono">' + nf(pr.questPoints) + '</span></div>' +
       '</div>' +
-      '<h4 class="ws-sub">Skills</h4><ul class="ws-skills">' + skillsHtml + '</ul>';
+      '<h4 class="ws-sub">Skills</h4><ul class="ws-skills">' + skillsHtml + '</ul>' +
+      '<h4 class="ws-sub">Achievements <span class="ws-count mono">' + achs.length + '</span></h4>' +
+      '<ul class="ws-achs">' + achHtml + '</ul>';
     panel.hidden = false;
   }
 
@@ -147,26 +155,15 @@
       .catch(function () { renderProfile(wallet, null); });
   }
 
-  /* ---- live player count + $SHELLS market cap (homepage badges) ---- */
+  /* ---- live player count (homepage/game badges). $SHELLS market cap is handled by market.js. ---- */
   var liveEl = document.querySelector("#livePlayers");
-  var capEl  = document.querySelector("#marketCap");
-  if ((liveEl || capEl) && CFG.statsUrl) {
-    var fmtUsd = function (n) {
-      if (!n || isNaN(n)) return "";
-      if (n >= 1e9) return "$" + (n / 1e9).toFixed(2) + "B";
-      if (n >= 1e6) return "$" + (n / 1e6).toFixed(2) + "M";
-      if (n >= 1e3) return "$" + (n / 1e3).toFixed(1) + "K";
-      return "$" + n.toFixed(2);
-    };
+  if (liveEl && CFG.statsUrl) {
     var pollLive = function () {
       fetch(CFG.statsUrl, { cache: "no-store" })
         .then(function (r) { return r.ok ? r.json() : null; })
         .then(function (d) {
-          if (!d) return;
-          if (liveEl && d.totals && typeof d.totals.onlinePlayers === "number")
+          if (d && d.totals && typeof d.totals.onlinePlayers === "number")
             liveEl.textContent = d.totals.onlinePlayers;
-          if (capEl && d.token && d.token.marketCapUsd)
-            capEl.textContent = " · $SHELLS " + fmtUsd(d.token.marketCapUsd);
         })
         .catch(function () {});
     };

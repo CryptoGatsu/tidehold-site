@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png" />
 <link rel="alternate icon" href="favicon.ico" />
@@ -44,7 +44,7 @@
         <a class="btn btn--brass" href="game.html">Enter the harbor</a>
         <button class="btn" id="connectWallet">Connect wallet</button>
       </div>
-      <p class="hero-note"><span class="live-badge"><span class="live-dot"></span><span id="livePlayers">0</span> players online</span><span id="marketCap" class="mono"></span> · runs in your browser · <span id="walletState"></span></p>
+      <p class="hero-note"><span class="live-badge"><span class="live-dot"></span><span id="livePlayers">0</span> players online</span><span id="marketCap" class="mono"> · $SHELLS <span data-shells-mcap>&mdash;</span></span> · runs in your browser · <span id="walletState"></span></p>
       <div id="walletStats" class="wallet-stats" hidden></div>
     </div>
     <div class="hero-tide tideline" aria-hidden="true"></div>
@@ -145,6 +145,7 @@
 </footer>
 
 <script src="config.js"></script>
+<script src="market.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
