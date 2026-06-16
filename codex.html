@@ -2,7 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="alternate icon" href="favicon.ico" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<meta name="theme-color" content="#0b1a1f" />
 <title>The Codex | Tidehold</title>
 <meta name="description" content="How Tidehold works: earning Convertible, the two-currency economy, what every resource and skill does, and a guide to each system: gathering, crafting, blueprints, building, the Quay, and banking." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,16 +19,16 @@
 
 <header class="site-header">
   <div class="wrap nav">
-    <a class="brand" href="index.html">
+    <a class="brand" href="/">
       <svg class="mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2c2.5 3 4 5.5 4 8a4 4 0 1 1-8 0c0-2.5 1.5-5 4-8z" fill="currentColor"/><path d="M3 18c2 0 2.5 1.5 4.5 1.5S10 18 12 18s2.5 1.5 4.5 1.5S19 18 21 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
       Tidehold
     </a>
     <button class="nav-toggle" aria-label="Menu" aria-expanded="false">Menu</button>
     <nav class="nav-links" aria-label="Primary">
-      <a href="index.html">Harbor</a>
-      <a href="codex.html" aria-current="page">Codex</a>
-      <a href="ledger.html">Ledger</a>
-      <a class="btn btn--sm btn--ghost" href="game.html">Play</a>
+      <a href="/">Harbor</a>
+      <a href="/codex" aria-current="page">Codex</a>
+      <a href="/ledger">Ledger</a>
+      <a class="btn btn--sm btn--ghost" href="/game">Play</a>
     </nav>
   </div>
 </header>
@@ -40,6 +45,7 @@
     <aside class="toc">
       <h4>Contents</h4>
       <a href="#start">Getting started</a>
+      <a href="#character">Your islander</a>
       <a href="#earn">How you earn</a>
       <a href="#economy">Currencies &amp; economy</a>
       <a href="#resources">Resources</a>
@@ -47,6 +53,9 @@
       <a href="#gathering">Gathering</a>
       <a href="#crafting">Crafting &amp; blueprints</a>
       <a href="#building">Building &amp; islands</a>
+      <a href="#combat">Combat</a>
+      <a href="#equipment">Equipment &amp; gear</a>
+      <a href="#quests">Quests</a>
       <a href="#market">The Quay</a>
       <a href="#banking">Banking</a>
       <a href="#sailing">Sailing</a>
@@ -61,6 +70,13 @@
         <p>You arrive with empty hands and an island to your name. The loop is simple to learn and deep to master: <strong>gather</strong> raw materials from the world, <strong>learn blueprints</strong> to unlock recipes, <strong>craft</strong> those materials into goods and machines, then <strong>build</strong> with them or <strong>sell</strong> them to other players.</p>
         <p>Nothing here is on rails. What your island becomes (a lumber yard, a workshop, a trading post) is up to what you choose to make and the fees you choose to charge. Connect a Solana wallet to claim ownership of what you earn; everything you craft and trade is yours.</p>
         <p class="note">New players never need to spend real money. You can gather, craft, level every skill, and trade your way up entirely from scratch.</p>
+      </section>
+
+      <section id="character">
+        <span class="eyebrow">First tide</span>
+        <h2>Your islander</h2>
+        <p>Before you set foot on the dock, you shape your islander in the character creator: body, skin and hair, and a full set of clothes, all on a layout that reflows to whatever screen you're playing on. Give them a name and they're yours.</p>
+        <p class="note">Returning from an earlier build? You'll be asked to remake your look and name once on the new creator. Your materials, skills, items, and balances all carry over untouched.</p>
       </section>
 
       <section id="earn">
@@ -141,7 +157,11 @@
             <tr><td>Foraging</td><td>Collects herbs &amp; plants</td><td>Forage across the islands.</td></tr>
             <tr><td>Crafting</td><td>Turns materials into goods</td><td>Craft at your bench and stations.</td></tr>
             <tr><td>Building</td><td>Places structures</td><td>Build crafted items onto islands.</td></tr>
-            <tr><td>Sailing</td><td>Players your boat</td><td>Sail between islands and across open water.</td></tr>
+            <tr><td>Sailing</td><td>Pilots your boat</td><td>Sail between islands and across open water.</td></tr>
+            <tr><td>Attack</td><td>Your accuracy in melee</td><td>Fight hand to hand. Higher Attack lands more of your hits.</td></tr>
+            <tr><td>Strength</td><td>How hard you hit</td><td>Fight hand to hand. Raises your maximum hit.</td></tr>
+            <tr><td>Defence</td><td>How often you're struck</td><td>Take hits in melee. Higher Defence is hit less.</td></tr>
+            <tr><td>Hitpoints</td><td>Your health pool</td><td>Earned alongside every fight. Starts at level 10.</td></tr>
           </tbody>
         </table>
         <p class="note">Skills are account-wide and permanent. There's no respec to worry about, every level you earn stays earned.</p>
@@ -177,6 +197,36 @@
         <h3>Stations and fees</h3>
         <p>Many buildings are working stations. Set a <strong>usage fee</strong> on yours and other players who craft there pay you in Convertible. Price it well and a busy station becomes a steady income.</p>
         <p class="note">Specialize however you like, there's no fixed "island type." Your purpose emerges from what you build and the permissions you set.</p>
+      </section>
+
+      <section id="combat">
+        <span class="eyebrow">System</span>
+        <h2>Combat</h2>
+        <p>Not every island is peaceful. Creatures roam the world, and taking them on is its own way to play. A fight runs on steady ticks, each one a chance to land a hit, with the size of that hit and how often you connect decided by your combat skills and the weapon in your hand.</p>
+        <p>Four skills carry melee: <strong>Attack</strong> sets your accuracy, <strong>Strength</strong> your biggest hit, <strong>Defence</strong> how often you're struck, and <strong>Hitpoints</strong> your health. Hitpoints starts at level 10, so you're never made of paper.</p>
+        <h3>Staying alive</h3>
+        <p>Food keeps you in the fight: eat berries and other provisions to heal between blows. And if you do fall, there's no harsh penalty, you respawn after a moment and keep everything you were carrying. Death costs you the fight, not your loot.</p>
+        <h3>One fight at a time</h3>
+        <p>When you engage a creature it becomes <strong>yours</strong> for the duration. Nobody else can tag in on a monster you're already fighting, and it won't break off to swipe at a passerby. Defeat it and its loot drops for you to claim.</p>
+        <div class="rule" style="margin:1rem 0;">
+          <p>You can't gather, craft, or build while you're <strong>in combat</strong>. Move off (tap the map to walk away) to disengage, then get back to work once you're clear.</p>
+        </div>
+        <p class="note">Melee is the first combat style on the water. More ways to fight are on the way.</p>
+      </section>
+
+      <section id="equipment">
+        <span class="eyebrow">System</span>
+        <h2>Equipment &amp; gear</h2>
+        <p>Your weapon does more than look the part. Equip one from your character sheet and it carries real bonuses to your accuracy, your maximum hit, and your defence, and it sets your <strong>attack speed</strong>: a quick blade swings more often, a heavy one hits harder but slower. Whatever you're holding stays with you between sessions.</p>
+        <h3>Yours to keep, or yours to sell</h3>
+        <p>Gear you choose at creation is <strong>bound</strong> to you, it shows on your character but can't be listed on the Quay. Gear you find out in the world comes in <strong>tradeable</strong>, so a good drop is something you can equip or turn into Convertible.</p>
+      </section>
+
+      <section id="quests">
+        <span class="eyebrow">System</span>
+        <h2>Quests</h2>
+        <p>The islanders you meet have work that needs doing. Talk to an NPC to take a quest, then follow its objectives, gather a certain material, defeat a particular creature, or reach a goal, with your progress tracked in your <strong>quest journal</strong> as you go.</p>
+        <p>Quests can run in stages, each one leading into the next, and seeing them through pays off in rewards. They're a guided way to learn what the world has to offer while your skills and balance grow.</p>
       </section>
 
       <section id="market">
@@ -216,12 +266,12 @@
 
 <footer class="site-footer">
   <div class="wrap foot">
-    <a class="brand" href="index.html">Tidehold</a>
+    <a class="brand" href="/">Tidehold</a>
     <div style="display:flex; gap:1.2rem; flex-wrap:wrap;">
-      <a href="codex.html">Codex</a>
-      <a href="ledger.html">Ledger</a>
+      <a href="/codex">Codex</a>
+      <a href="/ledger">Ledger</a>
       <a data-token href="#">$SHELLS token</a>
-      <a href="game.html">Play</a>
+      <a href="/game">Play</a>
     </div>
     <small>© <span data-year>2026</span> Tidehold</small>
   </div>

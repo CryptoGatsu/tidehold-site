@@ -41,6 +41,8 @@
   function setConnected(pubkey) {
     if (btn) { btn.textContent = "Wallet linked"; btn.classList.remove("btn--brass"); }
     if (state) state.textContent = short(pubkey);
+    window.__tideholdWallet = pubkey;
+    document.dispatchEvent(new Event("tidehold:wallet"));
     loadProfile(pubkey);
   }
 
@@ -72,6 +74,8 @@
         if (btn) { btn.textContent = "Connect wallet"; btn.classList.add("btn--brass"); }
         if (state) state.textContent = "";
         var ws = document.querySelector("#walletStats"); if (ws) ws.hidden = true;
+        window.__tideholdWallet = null;
+        document.dispatchEvent(new Event("tidehold:wallet"));
       });
     }
   }
