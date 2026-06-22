@@ -12,6 +12,8 @@
        "marketVolumeShells":0,      // GameStats MarketVolume
        "marketTaxShells":   0,      // GameStats MarketTax (-> reserve)
        "withdrawnShells":   0,      // GameStats ShellsWithdrawn
+       "totalDuels":        0,      // GameStats DuelsPlayed (staked duels resolved)
+       "duelBetVolumeShells":0,     // GameStats DuelBetVolume (total spectator wagers)
        "totalPlayers":     0,      // total accounts ever
        "onlinePlayers":    0,      // currently connected (live count)
        "peakConcurrent":   0,      // all-time peak simultaneous players
@@ -90,6 +92,8 @@
       gauge("Tax to reserve", conv(t.marketTaxShells) + " C", shellsSub(t.marketTaxShells)),
       gauge("Withdrawn", conv(t.withdrawnShells) + " C", shellsSub(t.withdrawnShells)),
       gauge("Convertible in play", conv(t.convertibleInPlay) + " C", shellsSub(t.convertibleInPlay)),
+      gauge("Duels fought", nf(t.totalDuels)),
+      gauge("Wagered on duels", conv(t.duelBetVolumeShells) + " C", shellsSub(t.duelBetVolumeShells)),
       gauge("Islands claimed", nf(t.islandsClaimed))
     ].join("");
 
@@ -160,6 +164,7 @@
       materialsGathered: 184320, craftsCompleted: 12774,
       marketVolumeShells: 9450000000, marketTaxShells: 189000000,
       withdrawnShells: 3120000000, convertibleInPlay: 14200000000,
+      totalDuels: 1483, duelBetVolumeShells: 2870000000,
       totalPlayers: 327, onlinePlayers: 18, peakConcurrent: 64, islandsClaimed: 291
     },
     token: { symbol: "$SHELLS", priceUsd: 0.00023, marketCapUsd: 228000 },

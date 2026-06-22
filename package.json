@@ -1,0 +1,10 @@
+{
+  "name": "tidehold-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tidehold marketing site + admin API function.",
+  "dependencies": {
+    "tweetnacl": "^1.0.3",
+    "bs58": "^5.0.0"
+  }
+}
