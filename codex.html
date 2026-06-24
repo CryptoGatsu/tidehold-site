@@ -52,6 +52,7 @@
       <a href="#skills">Skills &amp; leveling</a>
       <a href="#gathering">Gathering</a>
       <a href="#crafting">Crafting &amp; blueprints</a>
+      <a href="#quality">Quality &amp; rarity</a>
       <a href="#building">Building &amp; islands</a>
       <a href="#vault">The Vault</a>
       <a href="#combat">Combat</a>
@@ -62,6 +63,7 @@
       <a href="#market">The Quay</a>
       <a href="#banking">Banking</a>
       <a href="#sailing">Sailing</a>
+      <a href="#gacha">Prize draws</a>
       <a href="#audio">Sound &amp; music</a>
     </aside>
 
@@ -117,6 +119,8 @@
           <p>Gameplay <strong>cannot mint</strong> Convertible. Selling, buying, and station fees only <strong>move</strong> it between players: what one account gains, another spent. The single deduction anywhere is the 2% market tax, which returns to the reserve as a sink. No faucet, no inflation, no surprise dilution.</p>
         </div>
         <p>Bound currency is the opposite by design: it has small faucets (daily tasks) and plenty of sinks, so it stays useful without ever becoming "real money." Keeping the two separate is what lets the world be generous with fun while staying disciplined with value.</p>
+        <h3>Topping up Bound</h3>
+        <p>Bound is meant to be earned, but if you want a head start on the sinks — cosmetics, rerolls, prize draws — you can turn real <span class="mono">$SHELLS</span> into Bound at any time. It's strictly one-way (Bound never cashes back out), which is exactly what keeps it a soft currency and never touches the Convertible reserve. Short on <span class="mono">$SHELLS</span>? You can <strong>pay with SOL directly</strong> — the game swaps it for you and shows the live rate and how much Bound you'll get before you commit.</p>
         <p class="note">Withdrawals are subject to a rolling daily cap. It's a safety valve, not a tax, your balance is always yours.</p>
       </section>
 
@@ -191,7 +195,29 @@
           <li><strong>Build</strong> it on your island, or <strong>sell</strong> it on the market.</li>
         </ol>
         <p>Crafting is where materials get spent, so the value of a finished good reflects everything that went into it. That's deliberate: it's what gives the things you sell a real floor price.</p>
+        <p>When a recipe makes a piece of gear, it also rolls a <strong>quality tier</strong> from your skills — see <a href="#quality">Quality &amp; rarity</a>. Level up and you'll craft finer gear, not just more of it.</p>
         <p class="note">Some recipes take a moment to finish rather than completing instantly, you're told how long it'll take and notified the moment it's done, so you can set a batch going and see it through.</p>
+      </section>
+
+      <section id="quality">
+        <span class="eyebrow">System</span>
+        <h2>Quality &amp; rarity</h2>
+        <p>Fish, food, materials, and gear all come in five <strong>quality tiers</strong>. The higher the tier, the stronger and more valuable the item, and each one is colour-coded everywhere it appears so you can read a haul at a glance:</p>
+        <table class="deftable">
+          <thead><tr><th>Tier</th><th>What it means</th></tr></thead>
+          <tbody>
+            <tr><td><span class="mono" style="color:#cccccc">Common</span></td><td>The baseline — solid, everyday goods</td></tr>
+            <tr><td><span class="mono" style="color:#73d966">Uncommon</span></td><td>A cut above, with a small bump to its effect</td></tr>
+            <tr><td><span class="mono" style="color:#66b3ff">Fine</span></td><td>Noticeably better — worth holding onto</td></tr>
+            <tr><td><span class="mono" style="color:#bf80ff">Rare</span></td><td>Genuinely scarce, and priced like it</td></tr>
+            <tr><td><span class="mono" style="color:#ffcc4d">Unique</span></td><td>The top of the table — the best your skill can produce</td></tr>
+          </tbody>
+        </table>
+        <h3>Skill makes quality</h3>
+        <p>When you craft a piece of gear, its tier is <strong>rolled from your skills</strong>: your Crafting level plus the skill the item is for — Woodcutting for a woodcutting axe, Mining for a pickaxe, your combat skills for a weapon. The better you are, the better your odds of a high tier. A master smith doesn't just make more gear, they make finer gear.</p>
+        <h3>Rerolling with Bound</h3>
+        <p>Not happy with what you rolled? Take a piece of gear to a <strong>reroll</strong> and spend <strong>Bound</strong> to roll its tier again. It's a true reroll — the result can land higher or lower — and the cost climbs with each reroll you do that day, so it's a gamble worth thinking about, not a guaranteed upgrade. It's one more way Bound gets spent back out of the world.</p>
+        <p class="note">Quality follows an item everywhere — into your pack, onto your character, across a trade, and onto the Quay — so a Rare blade is Rare in everyone's hands.</p>
       </section>
 
       <section id="building">
@@ -252,6 +278,7 @@
         <p>Your weapon does more than look the part. Equip one from your character sheet and it carries real bonuses to your accuracy, your maximum hit, and your defence, and it sets your <strong>attack speed</strong>: a quick blade swings more often, a heavy one hits harder but slower. Whatever you're holding stays with you between sessions.</p>
         <h3>Yours to keep, or yours to sell</h3>
         <p>Gear you choose at creation is <strong>bound</strong> to you, it shows on your character but can't be listed on the Quay. Gear you find out in the world comes in <strong>tradeable</strong>, so a good drop is something you can equip or turn into Convertible.</p>
+        <p>Gear also carries a <strong>quality tier</strong> shown in its name and colour, from Common up to Unique. A higher tier is a stronger piece, so two of the same item can be worlds apart — see <a href="#quality">Quality &amp; rarity</a>.</p>
       </section>
 
       <section id="trading">
@@ -259,6 +286,7 @@
         <h2>Player trading</h2>
         <p>Beyond the Quay's order book, you can deal face to face. Invite another islander to a <strong>trade</strong> and you each lay out what you're offering — tradeable gear, stacks of materials, or Convertible — on your side of the window.</p>
         <p>It's built to be scam-proof. You both see the full offer, and the swap only happens after a <strong>two-step agreement</strong>: first you accept the layout, then you confirm it. If either side changes anything after you've accepted, the agreement resets — so what you confirm is exactly what you saw. The exchange is all-or-nothing: every item moves at once, or nothing does.</p>
+        <p class="note">Every item on the table shows its <strong>quality tier</strong> in its colour and name, so you always know exactly which Rare you're shaking hands on — and the tier travels with the item, so what you agree to is what you receive.</p>
       </section>
 
       <section id="quests">
@@ -277,6 +305,7 @@
           <li><strong>The market matches.</strong> When a buy and sell overlap, the trade fills at the resting order's price, so a new order can only get the same price or better, never worse.</li>
           <li><strong>Funds are escrowed.</strong> Your coins or goods are held the moment you post, so every offer on the book is real and backed.</li>
           <li><strong>Partial fills welcome.</strong> Large offers fill piece by piece as counterparties appear.</li>
+          <li><strong>Filter by rarity.</strong> Every quality tier has its own order book — pick Common, Uncommon, Fine, Rare, or Unique to browse and trade exactly the grade you're after.</li>
           <li><strong>A collection box keeps you safe offline.</strong> Proceeds and bought goods land in your box; nothing is lost if you log off mid-trade. Collect them next time you're in.</li>
         </ul>
         <p>A flat <strong>2% tax</strong> is withheld from the seller on every fill and returned to the reserve. It's the only leak in the whole economy, and it's a sink, it never pays anyone out.</p>
@@ -297,6 +326,14 @@
         <span class="eyebrow">System</span>
         <h2>Sailing</h2>
         <p>The islands are spread across open water, and a boat is how you cross it. Step from land to your vessel to switch into sailing, then chart a course to other islands to gather where the nodes are richer, visit markets, or work a friend's stations. Sailing is its own skill, the more you sail, the better you handle the water.</p>
+      </section>
+
+      <section id="gacha">
+        <span class="eyebrow">System</span>
+        <h2>Prize draws</h2>
+        <p>Spend <strong>Bound</strong> at a prize draw for a shot at items, materials, and Bound itself, with the rarer prizes tinted by their tier. You get a few <strong>free draws every day</strong>, and can pay Bound for more. It's a pure Bound sink — never real value — so it's all in good fun.</p>
+        <h3>Your prizes are always safe</h3>
+        <p>If your pack is full, anything you win that won't fit drops into a <strong>collection box</strong> instead of being lost. Free up some space, then <strong>Collect</strong> to pull it into your inventory — whatever still doesn't fit simply waits in the box for next time. And if your pack is completely full, the draw asks you to make room first, so you never spend a spin into nothing.</p>
       </section>
 
       <section id="audio">
